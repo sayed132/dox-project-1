@@ -4,7 +4,8 @@ import {
 import Login from "../Components/Login/Login";
 import DashboardLayouts from "../Layouts/DashboardLayouts";
 import PersonalInfo from "../pages/Dashboard/PersonalInfo/PersonalInfo";
-import InstitutionalInfo from "../pages/Dashboard/InstitutionalInfo";
+import InstitutionalInfo from "../pages/Dashboard/InstitutionalInfo/InstitutionalInfo";
+
 
 export const router = createBrowserRouter([
   {
