@@ -5,6 +5,7 @@ import Login from "../Components/Login/Login";
 import DashboardLayouts from "../Layouts/DashboardLayouts";
 import PersonalInfo from "../pages/Dashboard/PersonalInfo/PersonalInfo";
 import InstitutionalInfo from "../pages/Dashboard/InstitutionalInfo/InstitutionalInfo";
+import Practice from "../pages/Dashboard/practice";
 
 
 export const router = createBrowserRouter([
@@ -26,7 +27,11 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/institutional-info",
         element: <InstitutionalInfo></InstitutionalInfo>,
-      }
+      },
+      {
+        path: "/dashboard/pra-info",
+        element: <Practice></Practice>,
+      },
     ],
   }
 ]);
