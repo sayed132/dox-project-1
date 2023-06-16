@@ -14,11 +14,11 @@ const Login = () => {
                             className="input input-bordered w-full max-w-xs" />
 
                     </div>
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full max-w-xs mb-4">
                         <label className="label"> <span className="label-text">Password</span></label>
                         <input type="password" className="input input-bordered w-full max-w-xs" />
                     </div>
-                    <input className='btn btn-accent w-full' value="Login" type="submit" />
+                    <input className='btn btn-accent w-full text-white' value="Login" type="submit" />
                     <div>
 
                     </div>
