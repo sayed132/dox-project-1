@@ -172,7 +172,7 @@ const GetPersonalInfo = () => {
         //           break;
         // }}
         return (
-            <div className=' p-7 shadow-lg'>
+            <div className=' p-7 shadow-lg rounded-lg'>
                 <h2 className="text-2xl">অনুগ্রহ করে সঠিক তথ্য লিখুন</h2>
                 <form className="mt-12" onSubmit={onSubmitHandler}>
                     <div className="form-control grid grid-cols-5 mb-4">

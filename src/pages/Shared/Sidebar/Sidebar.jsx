@@ -12,10 +12,10 @@ const Sidebar = () => {
             <div className="drawer-side">
                 <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-                    <li><Link to="/dashboard/personal-info">Personal Information</Link></li>
-                    <li><Link to="/dashboard/get-personal-info">Edit & See Personal Info</Link></li>
-                    <li><Link to="/dashboard/institutional-info">Institutional Information</Link></li>
-                    <li><Link to="/dashboard/license-info">License Information</Link></li>
+                    <li className="mb-4 "><Link to="/dashboard/personal-info">Personal Information</Link></li>
+                    <li className="mb-4 "><Link to="/dashboard/get-personal-info">Edit & See Personal Info</Link></li>
+                    <li className="mb-4 "><Link to="/dashboard/institutional-info">Institutional Information</Link></li>
+                    <li className="mb-4 "><Link to="/dashboard/license-info">License Information</Link></li>
                 </ul>
 
             </div>

@@ -1,7 +1,7 @@
 
 const InstitutionalInfo = () => {
     return (
-        <div className=' p-7 '>
+        <div className=' p-7 shadow-lg rounded-lg'>
             <h2 className="text-2xl">অনুগ্রহ করে আপনার শিক্ষা প্রতিষ্ঠানের সঠিক তথ্য দিন</h2>
             <form className="mt-12">
                 <div className="form-control grid grid-cols-5 mb-4">
