@@ -14,7 +14,7 @@ const Sidebar = () => {
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                     <li><Link to="/dashboard/personal-info">Personal Information</Link></li>
                     <li><Link to="/dashboard/institutional-info">Institutional Information</Link></li>
-                    <li><Link to="/dashboard/pra-info">License Information</Link></li>
+                    <li><Link to="/dashboard/license-info">License Information</Link></li>
                 </ul>
 
             </div>

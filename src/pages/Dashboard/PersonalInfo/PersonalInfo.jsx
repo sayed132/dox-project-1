@@ -1,14 +1,21 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { data } from '../../../district';
 
 const PersonalInfo = () => {
+
+    const [selectedDivision, setSelectedDivision] = useState("");
+    const [selectedDistrict, setSelectedDistrict] = useState("");
+    const [selectedUpazilla, setSelectedUpazilla] = useState("");
+
+
 
     const [formApplication, setFormApplication] = useState({
         client_id: "",
         name: "",
         f_name: "",
         address: "",
+        division: "",
         district: "",
         upazilla: "",
         remarks: "",
@@ -20,6 +27,55 @@ const PersonalInfo = () => {
         user_photo: "",
 
     });
+
+    // division and district properties
+    const handleDivisionChange = (event) => {
+        setSelectedDivision(event.target.value);
+        setSelectedDistrict("");
+        setSelectedUpazilla("");
+    };
+
+    const handleDistrictChange = (event) => {
+        setSelectedDistrict(event.target.value);
+        setSelectedUpazilla("");
+    };
+
+    const handleUpazillaChange = (event) => {
+        setSelectedUpazilla(event.target.value);
+    };
+
+    //   find selected data source
+    const divisions = data.map((entry) => entry.division);
+
+    const divisionOptions = divisions.map((division, index) => (
+        <option key={index} value={division}>
+            {division}
+        </option>
+    ));
+
+    const selectedDivisionObj = data.find(
+        (entry) => entry.division === selectedDivision
+    );
+
+    const districts = selectedDivisionObj ? selectedDivisionObj.name : [];
+
+    const districtOptions = districts.map((district, index) => (
+        <option key={index} value={district.district}>
+            {district.district}
+        </option>
+    ));
+
+    const selectedDistrictObj = districts.find(
+        (district) => district.district === selectedDistrict
+    );
+
+    const upazillas = selectedDistrictObj ? selectedDistrictObj.upazilla : [];
+
+    const upazillaOptions = upazillas.map((upazilla, index) => (
+        <option key={index} value={upazilla}>
+            {upazilla}
+        </option>
+    ));
 
     //On Change Form
 
@@ -36,6 +92,9 @@ const PersonalInfo = () => {
                 break;
             case "address":
                 setFormApplication({ ...formApplication, address: event.target.value });
+                break;
+            case "division":
+                setFormApplication({ ...formApplication, division: event.target.value });
                 break;
             case "district":
                 setFormApplication({ ...formApplication, district: event.target.value });
@@ -113,37 +172,39 @@ const PersonalInfo = () => {
 
                 </div>
                 <div className="form-control grid grid-cols-5 mb-4">
-                    <label htmlFor="district" className="label"> <span className="label-text font-semibold">বিভাগ</span></label>
-                    <select id="district" onChange={(event) => { onChangeForm("district", event); }}
+                    <label htmlFor="division" className="label"> <span className="label-text font-semibold">বিভাগ</span></label>
+                    <select  value={selectedDivision} id="division" 
+                    // onChange={(event) => { onChangeForm("division", event); }}
+                     onChange={handleDivisionChange} onClick={(event) => { onChangeForm("division", event); }}
+                        className="select input-bordered col-span-4 shadow-sm">
+                        <option  value="">Select Division</option>
+                        {divisionOptions}
+                    </select>
+
+
+                </div>
+                <div className="form-control grid grid-cols-5 mb-4">
+                    <label htmlFor="district" className="label"> <span className="label-text font-semibold">জেলা</span></label>
+                    
+                    <select value={selectedDistrict} id="district" onChange={handleDistrictChange}
+                    onClick={(event) => { onChangeForm("district", event); }}
 
                         className="select input-bordered col-span-4 shadow-sm">
-                        <option>বরিশাল</option>
-                        <option>...</option>
-                        <option>...</option>
+                        <option value="">Select District</option>
+                        {districtOptions}
                     </select>
 
                 </div>
-                {/* <div className="form-control grid grid-cols-5 mb-4">
-                    <label className="label"> <span className="label-text font-semibold">জেলা</span></label>
-                    <select
-
-                        className="select input-bordered col-span-4 shadow-sm">
-                        <option>বরিশাল</option>
-                        <option>...</option>
-                        <option>...</option>
-                    </select>
-
-                </div> */}
                 <div className="form-control grid grid-cols-5 mb-4 ">
                     <label htmlFor="upazilla" className="label"> <span className="label-text font-semibold">উপজেলা</span></label>
 
 
-                    <select id="upazilla" onChange={(event) => { onChangeForm("upazilla", event); }}
+                    <select id="upazilla" value={selectedUpazilla}  onChange={handleUpazillaChange}
+                    onClick={(event) => { onChangeForm("upazilla", event); }}
 
                         className="select input-bordered col-span-4 shadow-sm">
-                        <option>বরিশাল</option>
-                        <option>...</option>
-                        <option>...</option>
+                        <option value="">Select Upazilla</option>
+                        {upazillaOptions}
                     </select>
                 </div>
                 <div className="form-control grid grid-cols-5 mb-4">
@@ -151,7 +212,7 @@ const PersonalInfo = () => {
                     <input type="text" id="remarks" onChange={(event) => { onChangeForm("remarks", event); }} className="input input-bordered col-span-4 shadow-sm" placeholder="মন্তব্য লিখুন" />
 
                 </div>
-                
+
                 <div className="form-control grid grid-cols-5 mb-4">
                     <label htmlFor="nid_number" className="label"> <span className="label-text font-semibold">NID কার্ড নাম্বার</span></label>
                     <input type="number" id="nid_number" onChange={(event) => { onChangeForm("nid_number", event); }} className="input input-bordered col-span-4 shadow-sm" placeholder="এখানে আপনার NID কার্ড নাম্বার লিখুন " />
