@@ -6,7 +6,7 @@ const DashboardLayouts = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="grid grid-cols-3">
+            <div className="lg:grid grid-cols-3">
                 <Sidebar></Sidebar>
                 <div className="col-span-2"><Outlet></Outlet></div>
 
