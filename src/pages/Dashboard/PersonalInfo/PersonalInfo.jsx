@@ -199,7 +199,8 @@ const PersonalInfo = () => {
                     <label htmlFor="upazilla" className="label"> <span className="label-text font-semibold">উপজেলা</span></label>
 
 
-                    <select id="upazilla" value={selectedUpazilla}  onChange={handleUpazillaChange}
+                    <select id="upazilla" value={selectedUpazilla}  
+                    onChange={handleUpazillaChange}
                     onClick={(event) => { onChangeForm("upazilla", event); }}
 
                         className="select input-bordered col-span-4 shadow-sm">
