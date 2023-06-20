@@ -47,13 +47,13 @@ const Login = () => {
                     <div className="form-control w-full max-w-xs">
                         <label htmlFor="email" className="label"> <span className="label-text">Email</span></label>
                         <input type="text" id="email" onChange={(event) => { onChangeForm("email", event); }}
-
+                             defaultValue={'dox@gmail.com'}
                             className="input input-bordered w-full max-w-xs" />
 
                     </div>
                     <div className="form-control w-full max-w-xs mb-4">
                         <label htmlFor="password" className="label"> <span className="label-text">Password</span></label>
-                        <input type="password" id="password" onChange={(event) => { onChangeForm("password", event); }} className="input input-bordered w-full max-w-xs" />
+                        <input type="password" defaultValue={'1234'} id="password" onChange={(event) => { onChangeForm("password", event); }} className="input input-bordered w-full max-w-xs" />
                     </div>
                     <input className='btn btn-accent w-full text-white' value="Login" type="submit" />
                     <div>

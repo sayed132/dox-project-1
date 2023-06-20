@@ -15,6 +15,7 @@ const Sidebar = () => {
                     <li className="mb-4 "><Link to="/dashboard/personal-info">Personal Information</Link></li>
                     <li className="mb-4 "><Link to="/dashboard/get-personal-info">Edit & See Personal Info</Link></li>
                     <li className="mb-4 "><Link to="/dashboard/institutional-info">Institutional Information</Link></li>
+                    <li className="mb-4 "><Link to="/dashboard/get-institutional-info">Get & See Institutional Info</Link></li>
                     <li className="mb-4 "><Link to="/dashboard/license-info">License Information</Link></li>
                     <li className="mb-4 "><Link to="/dashboard/get-license-info">Edit & See License Info</Link></li>
                     <li className="mb-4 "><Link to="/dashboard/get-featuring-info">Featuring</Link></li>

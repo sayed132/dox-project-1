@@ -35,7 +35,7 @@ const GetPersonalInfo = () => {
     });
 
     useEffect(() => {
-        fetch("http://103.49.200.66:8080/user/getclient/" + 101)
+        fetch("http://103.49.200.66:8080/user/getclient/" + 103)
             .then(res => res.json())
             .then(data => setUserInfo(data.result.client))
     }, []);

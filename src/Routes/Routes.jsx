@@ -9,6 +9,7 @@ import LicenseInfo from "../pages/Dashboard/LicenseInfo/LicenseInfo";
 import GetPersonalInfo from "../pages/Dashboard/GetPersonalInfo/GetPersonalInfo";
 import GetAndSeeLicense from "../pages/Dashboard/GetAndSeeLicense/GetAndSeeLicense";
 import Featuring from "../pages/Dashboard/Featuring/Featuring";
+import GetAndSeeInstitutionalInfo from "../pages/Dashboard/GetAndSeeInstitutionalInfo/GetAndSeeInstitutionalInfo";
 
 
 export const router = createBrowserRouter([
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/institutional-info",
         element: <InstitutionalInfo></InstitutionalInfo>,
+      },
+      {
+        path: "/dashboard/get-institutional-info",
+        element: <GetAndSeeInstitutionalInfo></GetAndSeeInstitutionalInfo>,
       },
       {
         path: "/dashboard/license-info",
