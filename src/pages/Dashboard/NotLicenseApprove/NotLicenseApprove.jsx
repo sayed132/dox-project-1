@@ -1,15 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 
-const DesignApprove = () => {
+const NotLicenseApprove = () => {
 
     const [formApplication, setFormApplication] = useState({
         license_number: "",
         date: "",
         type: "",
         first_app_date: "",
-        approve_date_ho: "",
-        approve_ho_number: "",
+        reason: "",
 
 
     });
@@ -30,11 +29,8 @@ const DesignApprove = () => {
             case "first_app_date":
                 setFormApplication({ ...formApplication, first_app_date: event.target.value });
                 break;
-            case "approve_date_ho":
-                setFormApplication({ ...formApplication, approve_date_ho: event.target.value });
-                break;
-            case "approve_ho_number":
-                setFormApplication({ ...formApplication, approve_ho_number: event.target.value });
+            case "reason":
+                setFormApplication({ ...formApplication, reason: event.target.value });
                 break;
 
         }
@@ -47,7 +43,7 @@ const DesignApprove = () => {
         console.log(formApplication);
 
         await axios
-            .post("http://103.49.200.66:8080/activities/designapprove", formApplication)
+            .post("http://103.49.200.66:8080/activities/notla", formApplication)
             .then(() => {
                 console.log(formApplication);
                 setTimeout(() => {
@@ -60,10 +56,10 @@ const DesignApprove = () => {
             });
     };
     return (
-        <>
+        <div>
             {/* Open the modal using ID.showModal() method */}
-            <button className="btn" onClick={() => window.my_modal_1.showModal()}>Design Approve</button>
-            <dialog id="my_modal_1" className="modal">
+            <button className="btn" onClick={() => window.my_modal_4.showModal()}>Not License Approve</button>
+            <dialog id="my_modal_4" className="modal">
                 <form method="dialog" className="modal-box w-11/12 max-w-5xl" onSubmit={onSubmitHandler}>
                     <div className="form-control grid grid-cols-5 mb-4">
                         <label htmlFor="license_number" className="label"> <span className="label-text font-semibold">লাইসেন্স নম্বর</span></label>
@@ -86,13 +82,8 @@ const DesignApprove = () => {
 
                     </div>
                     <div className="form-control grid grid-cols-5 mb-4">
-                        <label htmlFor="approve_date_ho" className="label"> <span className="label-text font-semibold">অনুমোদন তারিখ হো</span></label>
-                        <input type="text" id="approve_date_ho" onChange={(event) => { onChangeForm("approve_date_ho", event); }} className="input input-bordered col-span-4 shadow-sm" placeholder="অনুমোদন_তারিখ_হো" />
-
-                    </div>
-                    <div className="form-control grid grid-cols-5 mb-4">
-                        <label htmlFor="approve_ho_number" className="label"> <span className="label-text font-semibold">অনুমোদন হো নম্বর</span></label>
-                        <input type="text" id="approve_ho_number" onChange={(event) => { onChangeForm("approve_ho_number", event); }} className="input input-bordered col-span-4 shadow-sm" placeholder="অনুমোদন হো নম্বর লিখুন" />
+                        <label htmlFor="reason" className="label"> <span className="label-text font-semibold">কারন লিখুন</span></label>
+                        <input type="text" id="reason" onChange={(event) => { onChangeForm("reason", event); }} className="input input-bordered col-span-4 shadow-sm" placeholder="লাইসেন্স আপ্রুভ না করার কারন লিখুন" />
 
                     </div>
                     <input className='btn btn-accent w-full mt-4' value="জমা দিন" type="submit" />
@@ -103,8 +94,8 @@ const DesignApprove = () => {
                 </form>
             </dialog>
 
-        </>
+        </div>
     );
 };
 
-export default DesignApprove;
+export default NotLicenseApprove;
